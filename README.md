@@ -1,2 +1,6 @@
-# helping-hands-back-end
-This is the back-end repository for the project.
+## Team-members:
+- Yousef Farwan
+- Malak Odtalla
+- Abdulrahman Mansour
+- Mohammed Lebzo
+- Sondos Abu-Qiass
