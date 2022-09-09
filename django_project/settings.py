@@ -19,8 +19,8 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     # Third-party
 
-    # "allauth",
-    # "allauth.account",
+    "allauth",
+    "allauth.account",
     # "crispy_forms",
     # "debug_toolbar",
 
@@ -163,7 +163,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 # added here 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
