@@ -18,21 +18,18 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # Third-party
-
     "allauth",
     "allauth.account",
     # "crispy_forms",
     # "debug_toolbar",
-
     "django_countries",
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
 
     # Local
-
     "accounts",
     'campaign'
-    
 ]
 
 # MIDDLEWARE
