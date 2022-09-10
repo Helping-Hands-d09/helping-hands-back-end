@@ -1,6 +1,6 @@
 from rest_framework.generics  import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from campaign.models import Campaign, Location, Category
-from campaign.serializers import CampaignSerializer, CategorySerializer, LocationSerializer
+from campaign.models import Campaign, Location, Category, JoinedCampaign
+from campaign.serializers import CampaignSerializer, CategorySerializer, LocationSerializer, JoinedCampaignSerializer
 from utils.permissions import IsAdminUserOrReadOnly, IsOwnerOrReadOnly 
 
 
@@ -27,9 +27,6 @@ class CategoryDetails(RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAdminUserOrReadOnly,)
 
 
-
-
-
 class CampaignList(ListCreateAPIView):
     serializer_class = CampaignSerializer
     def get_queryset(self):
@@ -44,3 +41,14 @@ class CampaignDetails(RetrieveUpdateDestroyAPIView):
     queryset = Campaign.objects.all() 
     serializer_class = CampaignSerializer 
     permission_classes = (IsOwnerOrReadOnly,)
+
+
+class JoinedCampaignList(ListCreateAPIView):
+    queryset = JoinedCampaign.objects.all()
+    serializer_class = JoinedCampaignSerializer  
+
+class JoinedCampaignDetails(RetrieveUpdateDestroyAPIView):
+    queryset = JoinedCampaign.objects.all() 
+    serializer_class = JoinedCampaignSerializer 
+    # permission_classes = (IsAdminUserOrReadOnly,)
+

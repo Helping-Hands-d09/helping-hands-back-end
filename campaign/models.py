@@ -34,9 +34,17 @@ class Campaign(models.Model):
     location = models.ForeignKey(Location, null=False, blank=False, on_delete=models.CASCADE)
     available_sets = models.IntegerField(blank=False, null=False)
     image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100, null=True)
+    members = models.ManyToManyField(get_user_model(),through='JoinedCampaign',through_fields=('campaign' ,'member'), related_name='members')
 
     def __str__(self):
         return self.title
+
+class JoinedCampaign(models.Model): 
+    """
+    The type of the campaign 
+    """
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, related_name='campaign')
+    member = models.ForeignKey(get_user_model(), null=False, blank=False, on_delete=models.CASCADE)
         
 
 

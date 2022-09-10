@@ -70,3 +70,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
         verbose_name = "User"
         verbose_name_plural = "Users"
+    
