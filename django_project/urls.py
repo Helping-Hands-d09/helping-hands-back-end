@@ -30,6 +30,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("api/v1/users/", include("accounts.urls")),
     path("api/v1/campaign/", include("campaign.urls")),
+    path("api/v1/uc-connection/", include("user_campaign_connection.urls")),
 
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),

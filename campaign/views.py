@@ -1,6 +1,6 @@
 from rest_framework.generics  import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from campaign.models import Campaign, Location, Category, JoinedCampaign
-from campaign.serializers import CampaignSerializer, CategorySerializer, LocationSerializer, JoinedCampaignSerializer
+from campaign.models import Campaign, Location, Category
+from campaign.serializers import CampaignSerializer, CategorySerializer, LocationSerializer
 from utils.permissions import IsAdminUserOrReadOnly, IsOwnerOrReadOnly 
 
 
@@ -43,12 +43,12 @@ class CampaignDetails(RetrieveUpdateDestroyAPIView):
     permission_classes = (IsOwnerOrReadOnly,)
 
 
-class JoinedCampaignList(ListCreateAPIView):
-    queryset = JoinedCampaign.objects.all()
-    serializer_class = JoinedCampaignSerializer  
+# class JoinedCampaignList(ListCreateAPIView):
+#     queryset = JoinedCampaign.objects.all()
+#     serializer_class = JoinedCampaignSerializer  
 
-class JoinedCampaignDetails(RetrieveUpdateDestroyAPIView):
-    queryset = JoinedCampaign.objects.all() 
-    serializer_class = JoinedCampaignSerializer 
-    # permission_classes = (IsAdminUserOrReadOnly,)
+# class JoinedCampaignDetails(RetrieveUpdateDestroyAPIView):
+#     queryset = JoinedCampaign.objects.all() 
+#     serializer_class = JoinedCampaignSerializer 
+#     # permission_classes = (IsAdminUserOrReadOnly,)
 

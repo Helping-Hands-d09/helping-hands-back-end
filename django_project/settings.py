@@ -29,7 +29,8 @@ INSTALLED_APPS = [
 
     # Local
     "accounts",
-    'campaign'
+    'campaign',
+    "user_campaign_connection"
 ]
 
 # MIDDLEWARE

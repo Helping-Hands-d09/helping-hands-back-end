@@ -1,7 +1,7 @@
 from rest_framework import serializers 
 from django.contrib.auth import get_user_model
 
-from campaign.models import Campaign, Location, Category, JoinedCampaign 
+from campaign.models import Campaign, Location, Category 
 from accounts.serializers import UserSerializer 
 
 
@@ -15,14 +15,6 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta: 
         model = Category 
         fields = '__all__' 
-
-class JoinedCampaignSerializer(serializers.ModelSerializer):
-    member = UserSerializer(read_only = True) 
-    member_name = serializers.PrimaryKeyRelatedField(queryset = get_user_model().objects.all(), source = "member", write_only=True)
-    
-    class Meta: 
-        model = JoinedCampaign 
-        fields = "__all__"
         
 
 class CampaignSerializer(serializers.ModelSerializer):
