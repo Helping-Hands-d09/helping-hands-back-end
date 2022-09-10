@@ -29,7 +29,9 @@ INSTALLED_APPS = [
 
     # Local
     "accounts",
-    'campaign'
+    'campaign',
+    'post'
+
 ]
 
 # MIDDLEWARE
