@@ -1,15 +1,31 @@
-from rest_framework.generics  import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from user_campaign_connection.models import JoinedCampaign
-from user_campaign_connection.serializers import JoinedCampaignSerializer
+from rest_framework.generics  import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
+from user_campaign_connection.models import JoinedTables
+from user_campaign_connection.serializers import ConnectionSerializer, JoinedCampaignSerializer, CreatedCampaignSerializer
 from utils.permissions import IsAdminUserOrReadOnly, IsOwnerOrReadOnly 
 
 
 
-class JoinedCampaignList(ListCreateAPIView):
-    queryset = JoinedCampaign.objects.all()
-    serializer_class = JoinedCampaignSerializer  
+class ConnectionList(ListCreateAPIView):
+    queryset = JoinedTables.objects.all()
+    serializer_class = ConnectionSerializer  
 
-class JoinedCampaignDetails(RetrieveUpdateDestroyAPIView):
-    queryset = JoinedCampaign.objects.all() 
-    serializer_class = JoinedCampaignSerializer 
+class ConnectionDetails(RetrieveUpdateDestroyAPIView):
+    queryset = JoinedTables.objects.all() 
+    serializer_class = ConnectionSerializer 
     # permission_classes = (IsAdminUserOrReadOnly,)
+
+class CreatedCampaignFilter(ListCreateAPIView):
+    serializer_class = CreatedCampaignSerializer
+
+    def get_queryset(self):
+        member_id = self.request.query_params.get('slug', None)
+        print(member_id)
+        return JoinedTables.objects.filter(member=member_id)
+
+class JoinedCampaignFilter(ListCreateAPIView):
+    serializer_class = JoinedCampaignSerializer
+
+    def get_queryset(self):
+        campaign_id = self.request.query_params.get('slug', None)
+        print(campaign_id)
+        return JoinedTables.objects.filter(campaign=campaign_id)

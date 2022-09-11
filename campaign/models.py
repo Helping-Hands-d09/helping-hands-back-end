@@ -29,7 +29,7 @@ class Campaign(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=False)
     date = models.DateField()
-    organizer = models.ForeignKey(get_user_model(), null=False, blank=False, on_delete=models.CASCADE)
+    organizer = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="campaigns")
     category = models.ForeignKey(Category, null=False, blank=False, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, null=False, blank=False, on_delete=models.CASCADE)
     available_sets = models.IntegerField(blank=False, null=False)

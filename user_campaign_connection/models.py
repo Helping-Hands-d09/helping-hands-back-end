@@ -4,13 +4,13 @@ from campaign.models import Campaign
 
 # Create your models here.
 
-class Testing(models.Model):
-    """
-    The connection between the users and the campaigns (joining)
-    """
-    campaigns = models.ManyToManyField(Campaign, through='JoinedCampaign',through_fields=('campaign' ,'member'), related_name='campaigns')
+# class Testing(models.Model):
+#     """
+#     The connection between the users and the campaigns (joining)
+#     """
+#     campaigns = models.ManyToManyField(Campaign, through='JoinedCampaign',through_fields=('campaign' ,'member'), related_name='campaigns')
 
-class JoinedCampaign(models.Model): 
+class JoinedTables(models.Model): 
     """
     The connection between the users and the campaigns (joining) 
     """

@@ -29,3 +29,4 @@ class CampaignSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Campaign 
         fields = '__all__' 
+        # depth=1
