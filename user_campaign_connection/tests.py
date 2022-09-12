@@ -62,27 +62,6 @@ class ConnectionTableTests(APITestCase):
         """ Log in within the above created user  """
         self.client.login(email="test@test.com", password="test12345")
 
-    def test_campaign_model(self):
-        """
-        test campaign model to check the existence data 
-        """
-        campaign = Campaign.objects.get(id=1)
-        actual_title = str(campaign.title)
-        actual_description = str(campaign.description)
-        actual_date = campaign.date
-        actual_organizer = campaign.organizer
-        actual_category = campaign.category
-        actual_location = campaign.location
-        actual_available_sets = campaign.available_sets
-        actual_image = str(campaign.image)
-        self.assertEqual(actual_title, campaign.title)
-        self.assertEqual(actual_description, campaign.description)
-        self.assertEqual(actual_date, campaign.date)
-        self.assertEqual(actual_organizer, campaign.organizer)
-        self.assertEqual(actual_category, campaign.category)
-        self.assertEqual(actual_location, campaign.location)
-        self.assertEqual(actual_available_sets, campaign.available_sets)
-        self.assertEqual(actual_image, campaign.image)
 
     def test_connection_table_model(self):
         """
@@ -143,6 +122,6 @@ class ConnectionTableTests(APITestCase):
         response = self.client.put(url, data)
         self.assertEqual(response.status_code, 400)
         connections = JoinedTables.objects.get(id=1)
-        self.assertEqual(connections.title, "clean world")
+        self.assertEqual(str(connections), f"connection c_id{connections.campaign} m_id{connections.member}")
 
 

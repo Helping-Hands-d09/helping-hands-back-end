@@ -17,7 +17,7 @@ urlpatterns = [
     path('comments/', CommentList.as_view() ,name='comment_list'),  
 
     # views for specific comment 
-    path('comments/<int:pk>/', CommentDetails.as_view() ,name='comment_list'),
+    path('comments/<int:pk>/', CommentDetails.as_view() ,name='comment_details'),
 
 
 ]

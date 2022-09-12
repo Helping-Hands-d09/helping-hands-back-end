@@ -1,7 +1,7 @@
 from rest_framework.generics  import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from post.models import Post, Comment
-from post.serializers import PostSerializer, CommentSerializer
+from post.serializers import PostSerializer, CommentSerializer, CommentsOfPostSerializer
 
 
 class PostList(ListCreateAPIView):
@@ -28,7 +28,7 @@ class CommentDetails (RetrieveUpdateDestroyAPIView):
 
 class CommentsDetailsFliter(ListCreateAPIView):
     """ This class represents a list of comments for specific post using (slug container) """
-    serializer_class = CommentSerializer
+    serializer_class = CommentsOfPostSerializer
 
     def get_queryset(self):
         """ override get_queryset to return a list of comments details for specific post """

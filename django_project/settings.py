@@ -1,4 +1,6 @@
 from pathlib import Path
+import collections
+collections.Callable = collections.abc.Callable
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,6 +28,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'drf_yasg',
+    'django_nose',
 
     # Local
     "accounts",
@@ -141,6 +144,15 @@ INTERNAL_IPS = ["127.0.0.1"]
 # CUSTOM USER MODEL CONFIGS
 # ------------------------------------------------------------------------------
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+# Use nose to run all tests
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# NOSE_ARGS = [
+#     '--with-coverage',
+#     '--cover-package=accounts, campaign, post, user_campaign_connection',
+#     '--cover-html',
+# ]
 
 # DJANGO-ALLAUTH CONFIGS
 # ------------------------------------------------------------------------------

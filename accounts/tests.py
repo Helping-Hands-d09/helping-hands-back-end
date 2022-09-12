@@ -17,7 +17,7 @@ class CustomeUserTests(TestCase):
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
         try:
-            self.assertIsNone(user.username)
+            self.assertEqual(user.username, "John Doe")
         except AttributeError:
             pass
         with self.assertRaises(TypeError):
@@ -35,7 +35,7 @@ class CustomeUserTests(TestCase):
         self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_superuser)
         try:
-            self.assertIsNone(admin_user.username)
+            self.assertEqual(admin_user.username, "John Doe")
         except AttributeError:
             pass
         with self.assertRaises(ValueError):

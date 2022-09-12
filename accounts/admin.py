@@ -18,6 +18,7 @@ class CustomUserAdmin(UserAdmin):
             "Personal Info",
             {
                 "fields": (
+                    "username",
                     "email",
                     "password",
                     "first_name",
