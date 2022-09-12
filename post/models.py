@@ -17,8 +17,7 @@ class Post(CreateTime):
     body = models.TextField()
     slug = models.SlugField()
     image = models.ImageField(upload_to = 'images/', blank = True, null = True)
-    comments = models.ManyToManyField(CustomUser,through='Comment',through_fields=('post' ,'author'), related_name='comments')
-
+    
     def __str__(self) -> str:
         return self.title
     
