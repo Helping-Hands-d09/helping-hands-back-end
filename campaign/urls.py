@@ -6,7 +6,7 @@ from campaign.views import (
     CategoryList,
     CategoryDetails,
     CampaignList,
-    CampaignDetails
+    CampaignDetails,
 )
 
 

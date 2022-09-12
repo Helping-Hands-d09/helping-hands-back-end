@@ -43,6 +43,7 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     """Custom user model."""
 
+    username = models.CharField(max_length=45, blank=False, null=False, default="John Doe")
     email = models.EmailField(unique=True, blank=False, null=False, max_length=256)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
@@ -63,10 +64,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self) -> str:
         """String representation for any record from CustomUser table."""
-        return f"{self.first_name} {self.last_name}"
+        return self.username
 
     class Meta:
         """Information about the CustomUser table."""
 
         verbose_name = "User"
         verbose_name_plural = "Users"
+    
