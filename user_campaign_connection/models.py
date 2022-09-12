@@ -17,5 +17,6 @@ class JoinedTables(models.Model):
     campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, related_name='campaign')
     member = models.ForeignKey(get_user_model(), null=False, blank=False, on_delete=models.CASCADE)
     
-
+    def __str__(self):
+        return f"connection c_id{self.campaign} m_id{self.member}"
 

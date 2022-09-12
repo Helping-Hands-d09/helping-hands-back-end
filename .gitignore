@@ -12,3 +12,5 @@ db.sqlite3
 media
 
 .venv
+jsons_for_front_end
+.idea

@@ -1,5 +1,6 @@
 from django.urls import path
 
+
 from user_campaign_connection.views import (
     ConnectionList,
     ConnectionDetails,
@@ -7,11 +8,12 @@ from user_campaign_connection.views import (
     JoinedCampaignFilter,
 )
 
-
 urlpatterns = [
-    path("/", ConnectionList.as_view(), name="category_list"),
-    path("/<int:pk>/", ConnectionDetails.as_view(), name="category_detail"),
-    path('joined-campaign/<slug:slug>', JoinedCampaignFilter.as_view()),
-    path('created-campaign/<slug:slug>', CreatedCampaignFilter.as_view()),
+    path("", ConnectionList.as_view(), name="connection_list"),
+    path("<int:pk>/", ConnectionDetails.as_view(), name="connection_detail"),
+    path('campaign-members/<slug:id>', JoinedCampaignFilter.as_view(), name="members_list"),
+    path('member-campaigns/<slug:id>', CreatedCampaignFilter.as_view(), name="campaigns_list"),
     
 ]
+
+
