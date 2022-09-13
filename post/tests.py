@@ -43,7 +43,6 @@ class PostTests(APITestCase):
             title = 'my first post',
             intro = 'test intro text',
             body = 'test body text',
-            slug = 'my-first-post' ,
             image = "http://127.0.0.1:8000/images/test_sICDkeC.png",
         )
         post.save()
@@ -68,14 +67,14 @@ class PostTests(APITestCase):
         actual_title = str(post.title)
         actual_intro = str(post.intro)
         actual_body = str(post.body)
-        actual_slug = str(post.slug)
+        # actual_slug = str(post.slug)
         actual_image = str(post.image)
 
         self.assertEqual(actual_author, post.author)
         self.assertEqual(actual_title, post.title)
         self.assertEqual(actual_intro, post.intro)
         self.assertEqual(actual_body, post.body)
-        self.assertEqual(actual_slug, post.slug)
+        # self.assertEqual(actual_slug, post.slug)
         self.assertEqual(actual_image, post.image)
 
     def test_comment_model(self):
@@ -122,7 +121,6 @@ class PostTests(APITestCase):
             'title': 'my first post',
             'intro': 'test intro text',
             'body': 'test body text',
-            'slug': 'my-first-post' ,
             'image': "http://127.0.0.1:8000/images/test_sICDkeC.png",
             }
         response = self.client.post(url, data)
@@ -179,7 +177,6 @@ class PostTests(APITestCase):
             'title': 'my first post update',
             'intro': 'test intro text update',
             'body': 'test body text update',
-            'slug': 'my-first-post update' ,
             'image': "http://127.0.0.1:8000/images/test_sICDkeC.png",
         }
         response = self.client.put(url, data)

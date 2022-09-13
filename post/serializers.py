@@ -8,7 +8,7 @@ class PostSerializer(serializers.ModelSerializer):
     """ This serializer is used to serialize a post object into a JSON file """
     class Meta: 
         model = Post
-        fields = '__all__' 
+        fields = ('author', 'title', 'intro', 'body', 'image') 
 
 
 class CommentSerializer(serializers.ModelSerializer):

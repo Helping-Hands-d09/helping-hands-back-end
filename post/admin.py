@@ -2,24 +2,24 @@ from django.contrib import admin
 from .models import Post, Comment
 
 
-class CommentsInline(admin.TabularInline):
-    model = Comment
-    raw_id_fields = ['post']
+# class CommentsInline(admin.TabularInline):
+#     model = Comment
+#     raw_id_fields = ['post']
 
-class CustomPostAdmin(admin.ModelAdmin):
-    search_fields = ['title', 'intro', 'body']
+# class CustomPostAdmin(admin.ModelAdmin):
+#     search_fields = ['title', 'intro', 'body']
 
-    list_display= ['title', 'slug','author', 'created_at']
+#     list_display= ['title','author', 'created_at']
 
-    list_filter = ['title', 'slug']
+#     list_filter = ['title']
 
-    prepopulated_fields = {'slug': ['title']}
+#     prepopulated_fields = {'slug': ['title']}
 
-    inlines = [CommentsInline]
+#     inlines = [CommentsInline]
 
 
-class CustomCategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('title',)}
+# class CustomCategoryAdmin(admin.ModelAdmin):
+#     prepopulated_fields = {'slug': ('title',)}
 
-admin.site.register(Post, CustomPostAdmin)
+admin.site.register(Post)
 admin.site.register(Comment)

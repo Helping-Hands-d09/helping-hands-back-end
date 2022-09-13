@@ -14,4 +14,7 @@ media
 .venv
 jsons_for_front_end
 .idea/
-
+cover
+coverage_html
+htmlcov
+.coverage

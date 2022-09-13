@@ -15,15 +15,15 @@ class Post(CreateTime):
     title = models.CharField(max_length=256)
     intro = models.TextField()
     body = models.TextField()
-    slug = models.SlugField()
+    slug = models.CharField(blank=True, null=True, max_length=10)
     image = models.ImageField(upload_to = 'images/', blank = True, null = True)
     
     def __str__(self) -> str:
         return self.title
     
-    def save(self,*args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
+    # def save(self,*args, **kwargs):
+    #     self.slug = slugify(self.title)
+    #     super(Post, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-created_at']
