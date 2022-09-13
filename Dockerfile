@@ -13,6 +13,9 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 
 # Copy project
-COPY . /code/
+COPY . .
 
 RUN python manage.py collectstatic --no-input
+
+# run gunicorn
+CMD gunicorn django_project.wsgi:application --bind 0.0.0.0:$PORT
