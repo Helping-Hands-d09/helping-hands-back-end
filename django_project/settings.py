@@ -146,9 +146,9 @@ USE_TZ = True
 
 # # STATIC
 
-STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
+STATICFILES_DIRS = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # DJANGO-CRISPY-FORMS CONFIGS
