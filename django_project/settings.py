@@ -110,7 +110,7 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": env.str("DATABASE_ENGINE"),
-        "NAME": env.str("DATABASE_NAME"),
+        "NAME": str(env.str("DATABASE_NAME")),
         "USER": env.str("DATABASE_USER"),
         "PASSWORD": env.str("DATABASE_PASSWORD"),
         "HOST": env.str("DATABASE_HOST"),
