@@ -21,5 +21,19 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'phone', 'image')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'location', 'phone', 'image')
+        # fields = "__all__"
         # list_serializer_class = UserListSerializer
+
+class CreateUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ("username", 'email', 'password', 'first_name', 'last_name', 'phone', 'location',)
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        user = CustomUser(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user

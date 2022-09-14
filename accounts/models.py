@@ -1,3 +1,4 @@
+from email.policy import default
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -5,7 +6,6 @@ from django.contrib.auth.models import (
 )
 from django.db import models
 from django_countries.fields import CountryField
-
 
 # Create your models here.
 class CustomUserManager(BaseUserManager):
@@ -53,9 +53,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     phone = models.CharField(max_length=25, blank=True)
-    location = CountryField()
-    # about = models.TextField(blank=True)
-    image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100)
+    location = models.CharField(max_length=128)
+    image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100, default="/images/test.jpg", null=True, blank=True)
     # theme = models.CharField(max_length=256, blank=True)
 
     USERNAME_FIELD = "email"

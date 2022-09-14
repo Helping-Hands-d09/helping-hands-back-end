@@ -12,17 +12,25 @@ Link: [https://helping-hands-api.herokuapp.com](https://helping-hands-api.heroku
 
 Endpoints:
 
+**Main**:
+
 - admin/
-- ^swagger(?P<format>\.json|\.yaml)$ [name='schema-json']
-- ^swagger/$ [name='schema-swagger-ui']
-- ^redoc/$ [name='schema-redoc']
 - accounts/
 - api/v1/users/
 - api/v1/campaign/
 - api/v1/connection/
 - api/v1/user-post/
-- api/token/ [name='token_obtain_pair']
-- api/token/refresh/ [name='token_refresh']
+- api/token/
+- api/token/refresh/
 - api-auth/
 
-**Note: There is more but I need to go, will continue tomorrow...**
+**Other for formatting and registering**:
+
+- api/v1/users/register
+- api/v1/campaign/location
+- api/v1/campaign/location/[id numbser]
+- api/v1/campaign/category
+- api/v1/campaign/category/[id number]
+- api/v1/connection/campaign-members/[campaign id number]
+- api/v1/connection/member-campaigns/[member id number]
+- api/v1/user-post/postcomment/[post id to get all it's comments]
