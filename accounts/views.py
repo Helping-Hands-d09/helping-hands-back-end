@@ -22,7 +22,7 @@ class UserDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     # permission_classes = (IsOwnerUserOrReadOnly,)
 
-class UserCreate(CreateAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = CreateUserSerializer
-    permission_classes = (AllowAny,)
+# class UserCreate(CreateAPIView):
+#     queryset = CustomUser.objects.all()
+#     serializer_class = CreateUserSerializer
+#     permission_classes = (AllowAny,)

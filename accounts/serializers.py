@@ -2,8 +2,6 @@
 from rest_framework import serializers
 from .models import CustomUser
 
-from campaign.models import Campaign
-
 from django.core.serializers import serialize
 
 
@@ -25,15 +23,15 @@ class UserSerializer(serializers.ModelSerializer):
         # fields = "__all__"
         # list_serializer_class = UserListSerializer
 
-class CreateUserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CustomUser
-        fields = ("username", 'email', 'password', 'first_name', 'last_name', 'phone', 'location',)
-        extra_kwargs = {'password': {'write_only': True}}
+# class CreateUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = CustomUser
+#         fields = ("username", 'email', 'password', 'first_name', 'last_name', 'phone', 'location',)
+#         extra_kwargs = {'password': {'write_only': True}}
 
-    def create(self, validated_data):
-        password = validated_data.pop('password')
-        user = CustomUser(**validated_data)
-        user.set_password(password)
-        user.save()
-        return user
+#     def create(self, validated_data):
+#         password = validated_data.pop('password')
+#         user = CustomUser(**validated_data)
+#         user.set_password(password)
+#         user.save()
+#         return user
